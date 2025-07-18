@@ -12,17 +12,20 @@ import {
   RevealFx,
 } from "@once-ui-system/core";
 import Link from "next/link";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 export default function Home() {
+  const { isMobile, isTablet } = useDeviceDetect();
+
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
       {/* Video Background - positioned absolutely behind content, starts under header */}
       <div style={{
         position: 'absolute',
-        top: '-110px', // Adjust this value based on your header height
+        top: '-110px',
         left: 0,
         width: '100vw',
-        height: 'calc(100vh - 80px)', // Subtract header height from total height
+        height: 'calc(100vh - 80px)',
         zIndex: 0,
         overflow: 'hidden',
       }}>
@@ -33,7 +36,7 @@ export default function Home() {
           playsInline
           style={{
             width: '100vw',
-            height: 'calc(100vh - 80px)', // Match the container height
+            height: 'calc(100vh - 80px)',
             objectFit: 'cover',
             display: 'block',
             filter: 'brightness(0.85) saturate(1.1)',
@@ -51,7 +54,7 @@ export default function Home() {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'rgba(25, 57, 99, 0.4)', // Navy blue with 60% opacity
+          background: 'rgba(25, 57, 99, 0.4)',
           zIndex: 1,
           pointerEvents: 'none',
         }}></div>
@@ -75,7 +78,11 @@ export default function Home() {
       {/* Main Content Column */}
       <Column fillWidth center padding="l" style={{ position: 'relative', zIndex: 1, minHeight: '100vh', paddingTop: '0vh', justifyContent: 'flex-start', paddingBottom: 0 }}>
         {/* Header content */}
-        <Column maxWidth="l" horizontal="center" gap="l" align="center" style={{ marginTop: '15vh', position: 'relative', zIndex: 4 }}>
+        <Column maxWidth="l" horizontal="center" gap="l" align="center" style={{ 
+          marginTop: isMobile ? '10vh' : '15vh',
+          position: 'relative', 
+          zIndex: 4 
+        }}>
           <Heading 
             variant="display-strong-xl" 
             marginTop="0" 
@@ -89,7 +96,7 @@ export default function Home() {
               whiteSpace: 'normal',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
-              fontSize: 'clamp(3rem, 12vw, 8rem)',
+              fontSize: isMobile ? 'clamp(2rem, 8vw, 4rem)' : 'clamp(3rem, 12vw, 8rem)',
             }}
             className="hero-heading gradient-text"
           >
@@ -508,7 +515,7 @@ export default function Home() {
               maxWidth: 1000,
             }}
           >
-            {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasin imapct\neverywhere we go.`}
+            {`Harnessing AI to revolutionize diverse sectors,\nmaking a lasting imapct\neverywhere we go.`}
           </span>
         </div>
 

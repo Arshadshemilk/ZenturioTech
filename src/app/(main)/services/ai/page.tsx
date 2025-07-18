@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 const services = [
   {
@@ -31,19 +32,7 @@ const services = [
 ];
 
 export default function AIPage() {
-  // SSR-safe window width check
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [isTablet, setIsTablet] = React.useState(false);
-  
-  React.useEffect(() => {
-    const check = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
-    };
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
+  const { isMobile, isTablet } = useDeviceDetect();
 
   return (
     <div style={{ background: '#0a192f', minHeight: '100vh', width: '100%', padding: 0, margin: 0, marginBottom: -70 }}>

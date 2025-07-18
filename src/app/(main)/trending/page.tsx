@@ -9,16 +9,11 @@ import {
 } from "@once-ui-system/core";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 export default function Trending() {
-  const [isDesktop, setIsDesktop] = useState(true);
+  const { isMobile } = useDeviceDetect();
   const [showUpcoming, setShowUpcoming] = useState(false);
-  useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth > 900);
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
 
   return (
     <>
@@ -67,7 +62,7 @@ export default function Trending() {
               {/* Top Row */}
               <div style={{ display: 'flex', gap: '2.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                 {/* Card 1 */}
-                {isDesktop ? (
+                {isMobile ? (
                   <Link href="/trending/smart-hospitals" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
@@ -191,7 +186,7 @@ export default function Trending() {
                   </Link>
                 )}
                 {/* Card 2 */}
-                {isDesktop ? (
+                {isMobile ? (
                   <Link href="/trending/mental-health" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
@@ -315,7 +310,7 @@ export default function Trending() {
                   </Link>
                 )}
                 {/* Card 3 */}
-                {isDesktop ? (
+                {isMobile ? (
                   <Link href="/trending/robotic-surgery" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
@@ -439,7 +434,7 @@ export default function Trending() {
                   </Link>
                 )}
                 {/* Card 4 */}
-                {isDesktop ? (
+                {isMobile ? (
                   <Link href="/trending/medical-imaging" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <TiltFx>
                       <div style={{
@@ -613,8 +608,8 @@ export default function Trending() {
                   }}>
                     <span style={{
                       position: 'absolute',
-                      top: 18,
-                      left: 18,
+                      top: 10,
+                      left: 10,
                       display: 'inline-block',
                       background: 'rgba(255,255,255,0.13)',
                       border: '1px solid rgba(255,255,255,0.22)',
@@ -627,7 +622,7 @@ export default function Trending() {
                       zIndex: 2,
                     }}>Upcoming</span>
                     <div style={{ padding: '0 0 28px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 ,marginBottom:-1}}>
-                      <div style={{ fontWeight: 700, fontSize: 22, marginBottom: -15, color: '#fff' }}>The Future of Quantum Computing</div>
+                      <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 0, color: '#fff' }}>The Future of Quantum Computing</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' ,marginBottom:-10 }}>How quantum tech will change the digital world.</div>
                     </div>
                     <img src="/images/ai.webp" alt="Quantum Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -655,8 +650,8 @@ export default function Trending() {
                   }}>
                     <span style={{
                       position: 'absolute',
-                      top: 18,
-                      left: 18,
+                      top: 10,
+                      left: 10,
                       display: 'inline-block',
                       background: 'rgba(255,255,255,0.13)',
                       border: '1px solid rgba(255,255,255,0.22)',
@@ -669,7 +664,7 @@ export default function Trending() {
                       zIndex: 2,
                     }}>Upcoming</span>
                     <div style={{ padding: '0 0 28px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }}>
-                      <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 9, color: '#fff' }}>Green Tech Innovations</div>
+                      <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 9, color: '#fff' }}>Green Tech Innovations</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Sustainable solutions for a better planet.</div>
                     </div>
                     <img src="/images/service.webp" alt="Green Tech" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />
@@ -697,8 +692,8 @@ export default function Trending() {
                   }}>
                     <span style={{
                       position: 'absolute',
-                      top: 18,
-                      left: 18,
+                      top: 10,
+                      left: 10,
                       display: 'inline-block',
                       background: 'rgba(255,255,255,0.13)',
                       border: '1px solid rgba(255,255,255,0.22)',
@@ -711,7 +706,7 @@ export default function Trending() {
                       zIndex: 2,
                     }}>Upcoming</span>
                     <div style={{ padding: '0 0 28px 28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', zIndex: 2, textAlign: 'left', paddingRight: 170 }}>
-                      <div style={{ fontWeight: 700, fontSize: 22, marginBottom: 4, color: '#fff' }}>The Rise of Edge Computing</div>
+                      <div style={{ fontWeight: 500, fontSize: 18, marginBottom: 4, color: '#fff' }}>The Rise of Edge Computing</div>
                       <div style={{ fontSize: 15, opacity: 0.85, color: '#fff' }}>Decentralizing data for speed and security.</div>
                     </div>
                     <img src="/images/vr.webp" alt="Edge Computing" style={{ width: 160, height: 180, borderRadius: 18, objectFit: 'cover', position: 'absolute', right: 1, bottom: 1, boxShadow: '0 2px 12px 0 rgba(25,118,210,0.13)', zIndex: 2 }} />

@@ -1,7 +1,11 @@
-import { Column, Flex } from "@once-ui-system/core";
+"use client";
+import { Heading, Text, Button, Column, RevealFx } from "@once-ui-system/core";
+import React from "react";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import JobCard from "@/components/JobCard";
 import ViewMoreButton from "@/components/ViewMoreButton";
 export default function Careers() {
+  const { isMobile, isTablet } = useDeviceDetect();
   const jobListings = [
     {
       title: "AI Research Engineer (PhD / PhD Pursuing)",

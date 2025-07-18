@@ -30,7 +30,7 @@ export default function Footer() {
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Follow us on</div>
         <div style={{ display: 'flex', gap: 16 }}>
           {/* Facebook */}
-          <a href="#" 
+          <a href="https://www.facebook.com/profile.php?id=61563813914814#" 
             aria-label="Facebook" 
             className="social-icon-link">
             <Image src="/images/f.png" alt="Facebook" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
@@ -50,7 +50,7 @@ export default function Footer() {
             <Image src="/images/l.png" alt="LinkedIn" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
           </a>
           {/* X (Twitter) */}
-          <a href="#" 
+          <a href="https://x.com/zenturiotech" 
             aria-label="X" 
             className="social-icon-link">
             <Image src="/images/x.png" alt="X" width={32} height={32} style={{ borderRadius: '8px', background: '#14325a', padding: '4px' }} />
@@ -62,7 +62,7 @@ export default function Footer() {
         <div style={{ color: '#1976d2', fontWeight: 700, marginBottom: 2, fontSize:22 }}>Get in Touch</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#072549', fontWeight: 300 }}>
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><path d="M2 4.5A2.5 2.5 0 014.5 2h11A2.5 2.5 0 0118 4.5v11A2.5 2.5 0 0115.5 18h-11A2.5 2.5 0 012 15.5v-11z" stroke="#1976d2" strokeWidth="1.5"/><path d="M4 6l6 5 6-5" stroke="#1976d2" strokeWidth="1.5"/></svg>
-          <span>contact@zenturio.com</span>
+          <span>contact@zenturiotech.com</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#072549', fontWeight: 300 }}>
           <svg width="20" height="20" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="#1976d2" strokeWidth="1.5"/><path d="M10 6v4l2.5 2.5" stroke="#1976d2" strokeWidth="1.5"/></svg>

@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { Column, Button, Text, Heading, TiltFx, RevealFx } from "@once-ui-system/core";
 import type { CSSProperties } from "react";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 export default function About() {
+  const { isMobile, isTablet } = useDeviceDetect();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 

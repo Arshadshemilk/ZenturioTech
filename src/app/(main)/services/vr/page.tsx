@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 const cards = [
   {
@@ -40,19 +41,7 @@ const responsiveStyle = (base: Record<string, any>, mobile: Record<string, any>)
 });
 
 export default function VRServicePage() {
-  // SSR-safe window width check
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [isTablet, setIsTablet] = React.useState(false);
-  
-  React.useEffect(() => {
-    const check = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
-    };
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
+  const { isMobile, isTablet } = useDeviceDetect();
 
   return (
     <div style={{
@@ -216,7 +205,11 @@ export default function VRServicePage() {
         })}
       </div>
       {/* Applications Section */}
-      <div style={{ maxWidth: 1100, margin: '0 auto', marginTop: 64 }}>
+      <div style={{ 
+        maxWidth: 1100, 
+        margin: '0 auto', 
+        marginTop: isMobile ? -80 : 64 
+      }}>
         {/* Applications Section h2 */}
         <h2 style={{
           color: '#3ba3ff',

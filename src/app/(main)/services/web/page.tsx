@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 const services = [
   {
@@ -62,19 +63,8 @@ const developmentSections = [
 ];
 
 export default function WebServicePage() {
-  const [isMobile, setIsMobile] = React.useState(false);
-  const [isTablet, setIsTablet] = React.useState(false);
+  const { isMobile, isTablet } = useDeviceDetect();
   
-  React.useEffect(() => {
-    const check = () => {
-      setIsMobile(window.innerWidth <= 768);
-      setIsTablet(window.innerWidth > 768 && window.innerWidth <= 1024);
-    };
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
   return (
     <main style={{
       width: '100%',

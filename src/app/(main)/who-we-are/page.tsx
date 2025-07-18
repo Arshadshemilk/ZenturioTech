@@ -6,8 +6,12 @@ import {
   Text,
   Column,
 } from "@once-ui-system/core";
+import React from "react";
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 
 export default function WhoWeAre() {
+  const { isMobile, isTablet } = useDeviceDetect();
+
   // Define reusable styles
   const teamMemberStyle = {
     position: 'absolute' as const,
@@ -56,7 +60,7 @@ export default function WhoWeAre() {
       paddingTop: '0vh', 
       justifyContent: 'flex-start', 
       paddingBottom: 0, 
-      marginTop: '10vh',
+      marginTop: isMobile ? '5vh' : '10vh',
       overflow: 'hidden',
       width: '100%'
     }}>
@@ -148,8 +152,8 @@ export default function WhoWeAre() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '48px 24px 0 24px',
-          marginTop: 10,
+          padding: '0px 24px 0 24px',
+          marginTop: -60,
           position: 'relative',
           maxWidth: 1400,
           margin: '0 auto',
